@@ -131,7 +131,7 @@ Procedure alternativa para agendamento (não retorna ID).
 
 ## 🔐 Segurança
 
-### Políticas de RLS (Row Level Security)
+### Políticas de RLS
 
 - **clientes**: Leitura habilitada para todos os usuários (anon, authenticated, service_role)
 - **profissionais**: Leitura habilitada para todos os usuários
