@@ -1,8 +1,11 @@
-# Sistema de Agendamentos com Supabase
+# Sistema de Agendamentos
+
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
 Um sistema robusto de gerenciamento de agendamentos construído com **Supabase** e **PostgreSQL**, permitindo agendamento de serviços com validação de disponibilidade de profissionais.
 
-## 📋 Visão Geral
+## Visão Geral
 
 O projeto implementa um sistema completo de agendamentos onde clientes podem agendar serviços com profissionais disponíveis. Inclui:
 
@@ -12,7 +15,7 @@ O projeto implementa um sistema completo de agendamentos onde clientes podem age
 - ✅ View consolidada de agendamentos
 - ✅ Políticas de segurança em nível de linha (RLS)
 
-## 🗄️ Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
 ### Tabelas
 
@@ -91,7 +94,7 @@ SELECT
 FROM v_agendamento;
 ```
 
-## ⚙️ Funções e Procedures
+## Funções e Procedures
 
 ### `fn_log_agendamento()`
 Trigger que registra automaticamente todas as operações (INSERT, UPDATE, DELETE) na tabela `log_agendamentos`.
@@ -129,7 +132,7 @@ Function que realiza o agendamento com validação de disponibilidade.
 ### `proc_realizar_agendamento(p_id_servico, p_id_profissional, p_id_cliente, p_data_atendimento)`
 Procedure alternativa para agendamento (não retorna ID).
 
-## 🔐 Segurança
+## Segurança
 
 ### Políticas de RLS
 
@@ -145,7 +148,7 @@ Todas as funções, procedures, tabelas e sequências têm permissões explícit
 - `authenticated` (usuários autenticados)
 - `service_role` (aplicação)
 
-## 📦 Dependências
+## Dependências
 
 ```json
 {
@@ -155,7 +158,7 @@ Todas as funções, procedures, tabelas e sequências têm permissões explícit
 }
 ```
 
-## 🚀 Como Usar
+## Como Usar
 
 ### Instalação
 
@@ -192,12 +195,12 @@ SELECT proc_realiza_agendamento(1, 1, 1, '2026-06-10 14:00:00');
 SELECT * FROM v_agendamento WHERE status = 'PENDENTE';
 ```
 
-## 📊 Triggers
+## Triggers
 
 ### `trg_log_agendamento`
 Trigger automático que dispara após INSERT, UPDATE ou DELETE na tabela `agendamentos` para registrar a operação no log.
 
-## 🔄 Fluxo de Agendamento
+## Fluxo de Agendamento
 
 1. **Cliente solicita agendamento** com serviço, profissional e horário
 2. **Sistema valida disponibilidade** usando `fn_verificar_disponibilidade()`
